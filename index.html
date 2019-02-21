@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>หน้าจอสมัครสมาชิก</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+          $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+    function show_dp(){
+      $( "#datepicker" ).datepicker('show'); //Show on click of button
+     }
+            </script>
+  </head>
+  <body>
+    <script>
+        var flag=true;
+        var idLength;
+        var postLength;
+        var telHomeLength;
+        var telLength;
+        var mobileLength;
+      function isNumber1(e) {
+        e = e || window.event;
+        var charCode = e.which ? e.which : e.keyCode;
+        idLength = e.key
+
+      
+        return /\d/.test(String.fromCharCode(charCode));
+      }
+      function isNumber2(e) {
+        e = e || window.event;
+        var charCode = e.which ? e.which : e.keyCode;
+        telHomeLength = e.key
+        return /\d/.test(String.fromCharCode(charCode));
+      }
+      function isNumber3(e) {
+        e = e || window.event;
+        var charCode = e.which ? e.which : e.keyCode;
+        telLength = e.key
+        return /\d/.test(String.fromCharCode(charCode));
+      }
+      function isNumber4(e) {
+        e = e || window.event;
+        var charCode = e.which ? e.which : e.keyCode;
+        postLength = e.key
+        return /\d/.test(String.fromCharCode(charCode));
+      }
+      function isNumber5(e) {
+        e = e || window.event;
+        var charCode = e.which ? e.which : e.keyCode;
+        mobileLength = e.key
+        return /\d/.test(String.fromCharCode(charCode));
+      }
+      function check() {
+        var email_x = document.getElementById("email").value;
+        filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (filter.test(email.value)) {
+          document.getElementById("pEmailCheck").style.display = "none";
+          flag = true;
+          return true;
+        } else {
+          document.getElementById("pEmailCheck").style.display = "block"
+          flag = false;
+          return false;
+        }
+      }
+      function submit(){    
+          var all1 = true;
+          var all2 = true;
+          var all3 = true;
+          var all4 = true;
+          var all5 = true;
+
+          if(idLength == 13){
+            all4=true
+            }else{
+            all4=false
+            }  
+          if(flag == true){
+             all1=true
+          }else{
+              all1=false;
+          }
+         
+          if(telHomeLength == 9 && telLength == 9){
+            all2=true;
+            }else{
+                all2=false
+            }
+            if(postLength == 5){
+                   all3=true
+                }else{
+                    all3=false
+                }
+                
+                if(mobileLength == 10){
+            all5=true;
+            }else{
+                all5=false
+            } 
+
+            if(all1 == true && all2 == true && all3 == true && all4 == true && all5 == true){
+                alert("ข้อมูลถูกต้อง")
+            }if(all1 != true){
+                alert("กรุณาใส่Emaiให้ถูกต้อง")
+            }if(all2 != true){
+                alert("กรุณาใส่เบอร์โทรศัพท์ หรือ โทรสาร ให้ถูกต้อง")
+            }if(all3 != true){
+                alert("กรุณาใส่รหัสไปรษณีย์ให้ถูกต้อง")
+            }if(all4 != true){
+                alert("กรุณาใส่หมายเลขบัตรประจำตัวประชาชนให้ถูกต้อง")
+            }if(all5 != true){
+                alert("กรุณาใส่เบอร์โทรศัพท์มือถือให้ถูกต้อง")
+            }
+                 }
+                 function reloadPage() {
+  location.reload();
+}
+
+    </script>
+    <div class="row">
+      <div class="column">
+        <img src="img/Icon01.png" alt="Smiley face" height="50" width="50" />
+      </div>
+      <div class="column">
+        <p>
+          ในขั้นตอนที่ 1 ทำการลงทะเบียนก่อน เพื่อนรับ
+          <strong>ชื่อผู้ใช้</strong>และ <strong>รหัสผ่าน</strong><br />
+          ใช้ในการกรอกใบสมัครในขั้นตอนที่ 2
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <h1>ข้อมูลทั่วไป [ภาษาไทย]</h1>
+      <div>
+        <p align="center">
+          <u>หมายเลขบัตรประจำตัวประชาชน</u>
+          <input
+            type="text"
+            id="FirstName"
+            size="30"
+            maxlength="13"
+            onkeypress="return isNumber1(event);"
+          />
+        </p>
+        <div class="row3">
+          <div class="column3">
+            <p>
+              <u>คำนำหน้าชื่อ</u>
+              <select required>
+                <option value="" disabled selected hidden>เลือก...</option>
+                <option value="">นาย</option>
+                <option value="">นาง</option>
+                <option value="">นางสาว</option>
+              </select>
+            </p>
+            <p>
+              <u>ชื่อเล่น</u>
+              <input type="text" id="Firstname" size="32" />
+            </p>
+            <p>
+              <u>จังหวัด</u>
+              <select>
+                <option value="">ชลบุรี</option>
+                <option value="">เชียงใหม่</option>
+                <option value="">เชียงราย</option>
+                <option value="">น่าน</option>
+                <option value="">เลย</option>
+              </select>
+            </p>
+            <p>
+              <u>บ้านเลขที่</u>
+              <input type="text" id="Firstname" size="29" />
+            </p>
+            <p>
+              <u>โทรศัพท์</u>
+              <input
+                type="text"
+                id="Firstname"
+                size="30"
+                maxlength="9"
+                onkeypress="return isNumber2(event);"
+              />
+            </p>
+            <p align="left">
+              <u>อีเมลล์</u>
+              <input type="text" id="email" name="email" onchange="check();"size="50" />
+              <P id="pEmailCheck" style="color:red; display: none" >*ใช้ในการรับรหัสผ่าน กรณีลืมรหัสผ่าน</P>
+            </p>
+          </div>
+          <div class="column3">
+            <p>
+              <u>ชื่อ</u>
+              <input type="text" id="Firstname" size="31" />
+            </p>
+            <p>
+            <div class="quesadilla">
+              <u>วัน/เดือน/ปี เกิด</u>
+                <input type="date" id="datepicker">
+                <button class="hide" onclick="show_dp();" >   
+                <img src="./img/Icon02.png" style="vertical-align: middle;" alt="Calendar" title="Set focus on birthday field" width="30px" height="30px">
+                </button>
+            </div>
+            </p>
+            <p>
+              <u>อำเภอ/เขต</u>
+              <select>
+                <option value="">เมืองชลบุรี</option>
+                <option value="">สัตหีบ</option>
+                <option value="">บางละมุง</option>
+                <option value="">พนัสนิคม</option>
+                <option value="">เกาะสีชัง</option>
+              </select>
+            </p>
+            <p>
+              <u>ถนน</u>
+              <input type="text" id="Firstname" size="30" />
+            </p>
+            <p></p>
+            <p>
+              <u>โทรสาร</u>
+              <input
+                type="text"
+                id="Firstname"
+                size="27"
+                maxlength="9"
+                onkeypress="return isNumber3(event);"
+              />
+            </p>
+            <p></p>
+          </div>
+
+          <div class="column3">
+            <p>
+              <u>นามสกุล</u>
+              <input type="text" id="Firstname" size="30" />
+            </p>
+            <p style="visibility:hidden">
+              <u>วัน/เดือน/ปี เกิด</u>
+              <input type="text" id="Firstname" size="20" />
+              <img
+                src="img/Icon02.png"
+                alt="Smiley face"
+                style="position: fixed;left:840px; width:30px; height:30px;"
+              />
+            </p>
+            <p>
+              <u>ตำบล/แขวง</u>
+              <select>
+                <option value="">บางทราย</option>
+                <option value="">นาป่า</option>
+                <option value="">บ้านสวน</option>
+                <option value="">อ่างศิลา</option>
+                <option value="">ห้วยกะปิ</option>
+              </select>
+            </p>
+            <p>
+              <u>รหัสไปรษณีย์</u>
+              <input
+                type="text"
+                id="Firstname"
+                size="31"
+                maxlength="5"
+                onkeypress="return isNumber4(event);"
+              />
+            </p>
+            <p>
+              <u>เบอร์โทรศัพท์มือถือ</u>
+              <input
+                type="text"
+                id="Firstname"
+                size="26"
+                maxlength="10"
+                onkeypress="return isNumber5(event);"
+              />
+            </p>
+          </div>
+        </div>
+        <h1>ข้อมูลทั่วไป [ภาษาอังกฤษ]</h1>
+        <div class="row3">
+          <div class="column3">
+            <p>
+              <u>Prefix</u>
+              <select class="select1">
+                <option value="">Mr.</option>
+                <option value="">Mrs.</option>
+                <option value="">Miss</option>
+              </select>
+            </p>
+          </div>
+          <div class="column3">
+            <p>
+              <u>First name</u>
+              <input type="text" id="Firstname" size="31" />
+            </p>
+          </div>
+          <div class="column3">
+            <p>
+              <u>Last name</u>
+              <input type="text" id="Firstname" size="31" />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="m">
+        <div class="n">
+          <button
+            class="button button3"
+            type="button"
+            onclick="submit()"
+          >
+            บันทึก
+          </button>
+          <button
+            class="button button3"
+            type="button"
+            onclick="reloadPage()"
+          >
+            ยกเลิก
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

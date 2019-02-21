@@ -1,0 +1,102 @@
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  padding: 10px;
+  height: 50px; /* Should be removed. Only for demonstration */
+}
+h1 {
+  font-size: 20px;
+  background: #fecc98;
+}
+
+.box {
+  width: 80%;
+  border: 2px solid #fecc98;
+  padding: 2px;
+  margin: 25px;
+}
+input {
+  line-height: 20px;
+}
+select:invalid {
+  color: gray;
+  font-style:italic;
+}
+select{
+    width:200px;
+    height: 30px;
+}
+
+.column3 {
+    float: left;
+    width: 32%;
+    padding: 10px;
+    
+  }
+  /* Clear floats after the columns */
+  .row3:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .select1{
+    color: gray;
+    
+  }
+  .m{
+      background: #EDEDED;
+     
+  }
+  .n{
+    margin-left: 1150px;
+  }
+  
+  .button {
+    background-color: #A9A9A9; /* Green */
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 10px;
+    cursor: pointer;
+    width: 150px;
+  }
+  .button3 {border-radius: 8px;}
+  .quesadilla:after{
+    z-index:-1;
+    content:'./img/Icon02.png';
+    display: block;
+    font-size:2rem;
+    color:STEELBLUE;
+    background: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:13px;
+    right:-7px;
+  }
+  
+  /*
+  >here is the nasty part
+  */
+  .enchilada::-webkit-calendar-picker-indicator{
+    opacity:0;
+  }
+  .enchilada, .enchilada:focus{
+    background:rgba(0,0,0,0); 
+  }
+  .hide{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+  }
